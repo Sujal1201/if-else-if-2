@@ -1,38 +1,44 @@
 #include<stdio.h>
+#include<string.h> // Added for string functions
 
 int main()
 {
-    int subject;
-   char  english ,maths, marathi, hindi ;
-    
-    printf( "\n enter your subject; ");
-    
-    scanf("%d, &subject");
-    printf("\n you have  enterd %d of subject" ,subject);
-    
-    if(subject=english || maths || marathi || hindi)
+    char subject[20]; // Changed int to char array for subject
+    printf("\nEnter Your Subject Name: ");
+    scanf("%s", subject); // Removed unnecessary quotes around subject and corrected format specifier
+
+    printf("\nYou Have Entered %s\n", subject); // Changed %d to %s for string printing
+
+    // Compare entered subject with each subject separately
+    if (strcmp(subject, "english") == 0 || 
+        strcmp(subject, "maths") == 0 || 
+        strcmp(subject, "marathi") == 0 || 
+        strcmp(subject, "hindi") == 0)
     {
-        printf("\n you have win 200 rs ");
+        printf("\nYou Passed\n");
     }    
-          else if(subject==maths)
-                  {
-                      printf("\n you have win 50 rs");
-                  }
-          else if(subject==marathi)
-                  {
-                     printf("\n you have win 45 rs");
-                  }
-          else if(subject==english)
-                  {
-                      printf("\n you have win 55 rs");
-                  }
-          else if(subject==hindi)
-                  {
-                      printf("\n you have win 65 rs");
-                  }
     else
-            {
-                printf("\n subject not found!\a");        
-            }              
+    {
+        printf("\nSubject not found!\n");        
+    }
+
+    // Display marks based on the subject
+    if (strcmp(subject, "maths") == 0)
+    {
+        printf("\nMaths Mark = 70\n");
+    }
+    else if (strcmp(subject, "marathi") == 0)
+    {
+        printf("\nMarathi Mark = 90\n");
+    }
+    else if (strcmp(subject, "english") == 0)
+    {
+        printf("\nEnglish Mark = 100\n");
+    }
+    else if (strcmp(subject, "hindi") == 0)
+    {
+        printf("\nHindi Mark = 80\n");
+    }
+
     return 0;
 }
